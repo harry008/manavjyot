@@ -1,0 +1,28 @@
+{
+  "env": {
+    "development": {
+      "presets": ["boldr"],
+      "plugins": [
+        ["module-resolver", {
+          "root": ["./src"]
+        }]
+      ]
+    },
+    "production": {
+      "presets": ["boldr"],
+      "plugins": [
+        "lodash",
+        ["module-resolver", {
+          "root": ["./src"]
+        }]
+      ]
+    },
+    "test": {
+      "presets": ["boldr"],
+      "plugins": ["istanbul", ["module-resolver", {
+          "root": ["./src"]
+        }]
+      ]
+    }
+  }
+}
