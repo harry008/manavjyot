@@ -14,11 +14,13 @@ import ReactDOM from 'react-dom/server';
 import match from 'react-router/lib/match';
 import createMemoryHistory from 'react-router/lib/createMemoryHistory';
 import RouterContext from 'react-router/lib/RouterContext';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { Provider } from 'react-redux';
-import { trigger } from 'redial';
+import {syncHistoryWithStore} from 'react-router-redux';
+import {Provider} from 'react-redux';
+import {trigger} from 'redial';
 
-
+// react-tap-event-plugin for material-ui
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 // material-ui
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -49,8 +51,17 @@ app.get('*', (req, res) => {
   const history = syncHistoryWithStore(memoryHistory, store);
 
   function hydrateOnClient() {
+    const staticMarkup = ReactDOM.renderToStaticMarkup(<Html assets={ webpackIsomorphicTools.assets() }
+                                                             store={ store }/>);
+    const renderToStringMarkup = ReactDOM.renderToString(<Html assets={ webpackIsomorphicTools.assets() }
+                                                               store={ store }/>);
+    if (staticMarkup == renderToStringMarkup)
+      console.log('both  markups are equal')
+    else
+      console.log('Both markups are different');
+
     res.send(`<!doctype html>
-      ${ReactDOM.renderToString(<Html assets={ webpackIsomorphicTools.assets() } store={ store } />)} `);
+                  ${staticMarkup}`);
   }
 
   if (__DISABLE_SSR__) {
@@ -58,14 +69,14 @@ app.get('*', (req, res) => {
     return;
   }
 
-  match({ history, routes: getRoutes(store), location }, (error, redirectLocation, renderProps) => {
+  match({history, routes: getRoutes(store), location}, (error, redirectLocation, renderProps) => {
     if (redirectLocation) {
       res.redirect(redirectLocation.pathname + redirectLocation.search);
     } else if (error) {
       res.status(500);
       hydrateOnClient();
     } else if (renderProps) {
-      const { dispatch, getState } = store;
+      const {dispatch, getState} = store;
 
       const locals = {
         path: renderProps.location.pathname,
@@ -75,7 +86,7 @@ app.get('*', (req, res) => {
         getState
       };
 
-      const { components } = renderProps;
+      const {components} = renderProps;
 
       trigger('fetch', components, locals).then(() => {
         const muiTheme = getMuiTheme({
@@ -100,10 +111,10 @@ app.get('*', (req, res) => {
           </MuiThemeProvider>
         );
         res.status(200);
-        global.navigator = { userAgent: req.headers['user-agent'] };
+        global.navigator = {userAgent: req.headers['user-agent']};
         res.send('<!doctype html>\n' + // eslint-disable-line
           ReactDOM.renderToString(
-            <Html assets={ webpackIsomorphicTools.assets() } component={ component } store={ store } />
+            <Html assets={ webpackIsomorphicTools.assets() } component={ component } store={ store }/>
           ));
       }).catch((mountError) => {
         debug(mountError.stack);

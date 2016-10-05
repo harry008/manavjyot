@@ -1,6 +1,6 @@
 const validate = values => {
   const errors = {};
-
+  console.log('Validating..');
   if (!values.fullName) {
     errors.fullName = 'Required';
   }

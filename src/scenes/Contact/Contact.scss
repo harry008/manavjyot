@@ -1,0 +1,21 @@
+.contact-form-wrapper {
+  width: 80%;
+  padding: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .contact-form {
+    width: 80%;
+    padding: 3%;
+
+    .btn-group {
+      display: flex;
+
+      .btn-group-btn {
+        margin-left: 10px;
+      }
+    }
+
+  }
+}

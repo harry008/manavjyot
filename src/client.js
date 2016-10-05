@@ -8,6 +8,9 @@ import {trigger} from 'redial';
 import WebFontLoader from 'webfontloader';
 import 'theme/main.scss';
 
+// react-tap-event-plugin for material-ui
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 // material-ui
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -30,7 +33,7 @@ const {dispatch, getState} = store;
 const routes = getRoutes(store, history);
 
 WebFontLoader.load({
-  google: {families: ['Open Sans:300,400,700', 'Roboto: 300,400,700']}
+  google: {families: ['Open Sans:300,400,700', 'Roboto:300,400,700']}
 });
 
 const render = () => {

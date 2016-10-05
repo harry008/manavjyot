@@ -22,9 +22,10 @@ export default (store) => {
       {
         path: 'contact',
         getComponent(nextState, cb) {
-          require.ensure('./Contact')
-            .then(loadModule(cb))
-            .catch(errorLoading);
+          require.ensure(['./Contact'], require => {
+            const Contact = require('./Contact');
+            loadModule(cb)(Contact);
+          }, 'contact');
         }
       }
     ]
