@@ -8,6 +8,7 @@ $color-gray: #999 !default;
 $color-dark-gray: #333 !default;
 $color-blue: #3a99d8 !default;
 
+$sendGrid-font-color: #546b81;
 
 $default-border-width: 1px !default;
 $default-border-color: $color-gray !default;
@@ -18,7 +19,7 @@ $body-bg: $white;
 
 $font-base: 16px;
 $text-size: 1rem;
-$font-stack: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+$font-stack: 'Roboto', 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 
 $heading-h1: 5.2rem;
 $heading-h2: 3.5rem;

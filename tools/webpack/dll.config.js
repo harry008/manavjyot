@@ -67,7 +67,8 @@ module.exports = {
       'webfontloader',
       'redux-form',
       'react-tap-event-plugin',
-      'material-ui'
+      'material-ui',
+      'wallop'
     ]
   },
 

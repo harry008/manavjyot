@@ -1,24 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {AppContainer} from 'react-hot-loader';
-import {Router, browserHistory, match} from 'react-router/es6';
-import {syncHistoryWithStore} from 'react-router-redux';
-import {trigger} from 'redial';
+import { Provider } from 'react-redux';
+import { AppContainer } from 'react-hot-loader';
+import { Router, browserHistory, match } from 'react-router/es6';
+import { syncHistoryWithStore } from 'react-router-redux';
+import { trigger } from 'redial';
 import WebFontLoader from 'webfontloader';
 import 'theme/main.scss';
 
 // react-tap-event-plugin for material-ui
 import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+
 // material-ui
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {green100, green500, green700} from 'material-ui/styles/colors';
 
 import getRoutes from './scenes';
 import configureStore from './state/store';
 
+injectTapEventPlugin();
 
 // The element React looks for to mount
 const MOUNT_POINT = window.document.getElementById('content');
@@ -29,31 +28,23 @@ const initialState = window.__PRELOADED_STATE || {};
 const store = configureStore(browserHistory, initialState);
 const history = syncHistoryWithStore(browserHistory, store);
 
-const {dispatch, getState} = store;
+const { dispatch, getState } = store;
 const routes = getRoutes(store, history);
 
 WebFontLoader.load({
-  google: {families: ['Open Sans:300,400,700', 'Roboto:300,400,700']}
+  google: { families: ['Roboto:300,400,700'] }
 });
 
 const render = () => {
-  const {pathname, search, hash} = window.location;
+  const { pathname, search, hash } = window.location;
   const location = `${pathname}${search}${hash}`;
 
-  match({routes, location}, () => {
-    const muiTheme = getMuiTheme({
-      palette: {
-        primary1Color: green500,
-        primary2Color: green700,
-        primary3Color: green100,
-      },
-    });
-
+  match({ routes, location }, () => {
     ReactDOM.render(
       <AppContainer>
-        <MuiThemeProvider muiTheme={ muiTheme }>
+        <MuiThemeProvider>
           <Provider store={ store } key="provider">
-            <Router routes={ routes } history={ history } key={ Math.random() }/>
+            <Router routes={ routes } history={ history } key={ Math.random() } />
           </Provider>
         </MuiThemeProvider>
       </AppContainer>,
@@ -61,11 +52,11 @@ const render = () => {
     );
 
     return history.listen(location => {
-      match({routes, location}, (error, redirectLocation, renderProps) => {
+      match({ routes, location }, (error, redirectLocation, renderProps) => {
         if (error) {
           console.log('⚠  ==> React Router match failed.'); // eslint-disable-line no-console
         }
-        const {components} = renderProps;
+        const { components } = renderProps;
         const locals = {
           path: renderProps.location.pathname,
           query: renderProps.location.query,

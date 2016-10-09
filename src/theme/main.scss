@@ -2,10 +2,11 @@
 @import 'grid';
 
 body {
-  background: linear-gradient(to left, #EB3349 , #F45C43);
+  /*background: linear-gradient(to left, #EB3349 , #F45C43);*/
+  background-color: #f9f9f6;
   font-family: $font-stack;
   font-size: $text-size;
-  color: $font-color;
+  color: $sendGrid-font-color; /*$font-color;*/
   margin: 0;
 }
 

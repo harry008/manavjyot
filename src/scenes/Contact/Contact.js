@@ -1,8 +1,8 @@
-import React, {PropTypes} from 'react';
-import {Field, reduxForm} from 'redux-form';
+import React, { PropTypes } from 'react';
+import { Field, reduxForm } from 'redux-form';
 import Helmet from 'react-helmet';
 
-import {Heading, Card, Row, Col, Grid, TextBlock} from 'components';
+import { Heading, Card, Row, Col, Grid, TextBlock } from 'components';
 
 // Material-ui
 import Paper from 'material-ui/Paper';
@@ -17,36 +17,37 @@ import './Contact.scss';
 import validate from './validate';
 
 // helper function for input controls
-const renderTextField = ({input, label, longLabel, meta: {touched, error}, ...custom}) => (
-  <TextField hintText={label}
-             floatingLabelText={longLabel}
-             errorText={touched && error}
-             fullWidth={true}
-             {...input}
-             {...custom}
-  />
-);
+const renderTextField = ({ input, label, longLabel, meta: { touched, error }, ...custom }) => (
+<TextField hintText={ label }
+  floatingLabelText={ longLabel }
+  errorText={ touched && error }
+  fullWidth
+  { ...input }
+  { ...custom }
+/>);
 
-// renderTextField.propTypes = {
-//   label: PropTypes.string,
-//   touched: PropTypes.bool,
-//   error: PropTypes.string
-//
-// };
+renderTextField.propTypes = {
+  custom: PropTypes.object,
+  label: PropTypes.string,
+  longLabel: PropTypes.string,
+  meta: PropTypes.object,
+  touched: PropTypes.bool,
+  error: PropTypes.string,
+  input: PropTypes.object
+};
 
-const Contact = ({submitting, pristine, handleSubmit, reset}) => {
-
+const Contact = ({ handleSubmit, valid, reset }) => {
   return (
     <div className="contact-form-wrapper">
-      <Helmet title="Contact us"/>
+      <Helmet title="Contact us" />
       <Paper zDepth={ 2 } className="contact-form">
         <div className="page-header">
-          <Heading type="h1" style={{paddingTop: '30px'}}>Contact us</Heading>
+          <Heading type="h1" style={ { paddingTop: '30px' } }>Contact us</Heading>
           <Divider />
         </div>
         <form action="/api/contact" onSubmit={ handleSubmit(values => {
           console.log('values in form', values);
-        })}>
+        }) } >
           <div>
             <Field
               name="fullName"
@@ -69,21 +70,23 @@ const Contact = ({submitting, pristine, handleSubmit, reset}) => {
               component={ renderTextField }
               label="Your Message"
               longLabel="Enter Your Message here"
-              multiLine={true}
+              multiLine
               rows={ 3 }
             />
           </div>
           <div className="btn-group">
             <RaisedButton
-              primary={true}
+              primary
               label="Submit"
-              className={'btn-group-btn'}
-              disabled={ submitting || pristine }
-              onTouchTap={ handleSubmit(values => console.log(values)) }/>
+              className={ 'btn-group-btn' }
+              disabled={ !valid }
+              onTouchTap={ handleSubmit(values => console.log(values)) }
+            />
             <RaisedButton
-              className={'btn-group-btn'}
+              className={ 'btn-group-btn' }
               label="Clear values"
-              onTouchTap={ reset }/>
+              onTouchTap={ reset }
+            />
           </div>
         </form>
       </Paper>
@@ -91,12 +94,11 @@ const Contact = ({submitting, pristine, handleSubmit, reset}) => {
   );
 };
 
-// Contact.propTypes = {
-//   submitting: PropTypes.bool,
-//   pristine: PropTypes.bool,
-//   handleSubmit: PropTypes.func,
-//   reset: PropTypes.func
-// };
+Contact.propTypes = {
+  handleSubmit: PropTypes.func,
+  reset: PropTypes.func,
+  valid: PropTypes.bool
+};
 
 export default reduxForm({
   form: 'contact',

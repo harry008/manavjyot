@@ -57,7 +57,8 @@ module.exports = function webpackConfig() {
         'webfontloader',
         'redux-form',
         'react-tap-event-plugin',
-        'material-ui'
+        'material-ui',
+        'wallop'
       ])
     }),
     output: {

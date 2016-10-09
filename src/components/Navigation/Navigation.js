@@ -3,14 +3,14 @@ import './Navigation.scss';
 
 const Navigation = (props) => {
   return (
-    <nav id="navbar">
+    <nav id="navbar" className="flex-nav">
       { props.children }
     </nav>
   );
 };
 
 Navigation.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 };
 
 export default Navigation;
