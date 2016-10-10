@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # React Universal Boiler
 [![Code Climate](https://codeclimate.com/github/strues/react-universal-boiler/badges/gpa.svg)](https://codeclimate.com/github/strues/react-universal-boiler)  [![Build Status](https://travis-ci.org/strues/react-universal-boiler.svg?branch=master)](https://travis-ci.org/strues/react-universal-boiler) [![Coverage Status](https://coveralls.io/repos/github/strues/react-universal-boiler/badge.svg?branch=master)](https://coveralls.io/github/strues/react-universal-boiler?branch=master)
 
@@ -73,3 +74,6 @@ A simple but feature rich starter boilerplate for you to build an universal web 
 Pull requests are welcome and encouraged. If I made a mistake, raise an issue and/or fix it and submit a PR. Have a question? I'll do what I can to answer it for you.
 
 ## Dependencies
+=======
+# manavjyot
+Charity App Project (MCA 2016) 
