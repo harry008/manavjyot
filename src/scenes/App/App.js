@@ -25,6 +25,7 @@ class App extends Component {
           <AppBar
             title="Manav Jyot Charity"
             onLeftIconButtonTouchTap={() => this.setState({ open: true }) }
+            iconElementRight={ <img src={Logo} height="50px" /> }
           />
           <div>
             { this.props.children }

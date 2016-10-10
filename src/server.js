@@ -139,7 +139,7 @@ app.use(passport.session());
 // });
 
 app.use(favicon(path.resolve(process.cwd(), './static/favicon.ico')));
-app.use(express.static(path.join(__dirname, '..', 'static')));
+app.use(express.static(path.join(__dirname, '..', 'static'), { maxAge: 31557600000 }));
 
 /**
  * App Routes
@@ -228,7 +228,6 @@ app.get('*', (req, res) => {
           userAgent: req.headers['user-agent'],
         });
 
-
         const component = (
           <MuiThemeProvider muiTheme={ muiTheme }>
             <Provider store={ store } key="provider">
@@ -236,6 +235,7 @@ app.get('*', (req, res) => {
             </Provider>
           </MuiThemeProvider>
         );
+
         res.status(200);
         global.navigator = { userAgent: req.headers['user-agent'] };
         res.send('<!doctype html>\n' + // eslint-disable-line

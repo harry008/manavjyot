@@ -1,13 +1,18 @@
 @import 'variables';
 @import 'grid';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   /*background: linear-gradient(to left, #EB3349 , #F45C43);*/
-  background-color: #f9f9f6;
+  background-color: #FCFCFC;
   font-family: $font-stack;
   font-size: $text-size;
   color: $sendGrid-font-color; /*$font-color;*/
   margin: 0;
+  padding: 0;
 }
 
 .wrapper {
