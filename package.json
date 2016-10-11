@@ -66,10 +66,10 @@
     "clean": "rimraf static/assets && rimraf static/server.js && rimraf static/server.js.map && rimraf static/webpack-assets.json && rimraf static/webpack-stats.json",
     "clean:server": "rimraf static/server.js && rimraf static/server.js.map",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "dev": "npm-run-all --parallel dev:client dev:server",
+    "dev": "npm-run-all --parallel build:dlls dev:client dev:server",
     "dev:client": "better-npm-run dev:client",
     "dev:server": "better-npm-run dev:server",
-    "postinstall": "npm run build:dlls && np run build",
+    "postinstall": "npm run build",
     "start:prod": "better-npm-run start:prod",
     "test": "better-npm-run test",
     "start": "npm run start:prod"
