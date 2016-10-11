@@ -5,8 +5,8 @@ import { Card, CardHeader, CardActions, CardText } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 import { Heading, Row, Col, Grid, TextBlock } from 'components';
+
 import Slider from './Slider';
-// import './Home.scss';
 
 class Home extends Component {
 
@@ -48,7 +48,7 @@ class Home extends Component {
                 </CardActions>
             </Card>
             </Col>
-            <Col md={1} xs={1} />
+            <Col md={ 1 } xs={ 1 } />
             <Col xs={ 12 } sm={ 10 } md={ 3 } className="point">
                 <Card>
                   <CardHeader
@@ -65,7 +65,7 @@ class Home extends Component {
                   </CardActions>
                 </Card>
             </Col>
-            <Col md={1} xs={1} />
+            <Col md={ 1 } xs={ 1 } />
             <Col xs={ 12 } sm={ 10 } md={ 3 } className="point">
                  <Card>
                   <CardHeader
@@ -87,7 +87,7 @@ class Home extends Component {
             <Col xs={ 10 } sm={ 10 } md={ 5 }>
               <Card>
                   <CardHeader
-                      title="About US"
+                    title="About US"
                   />
                   <CardText>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -99,10 +99,10 @@ class Home extends Component {
                   </CardActions>
               </Card>
             </Col>
-            <Col xs={12} md={2}  sm={1}/>
-            <Col xs={12} sm={10} md={5}>
+            <Col xs={ 12 } md={ 2 } sm={ 1 } />
+            <Col xs={ 12 } sm={ 10 } md={ 5 }>
               <Card>
-                  <CardHeader title="Successful Stories"/>
+                  <CardHeader title="Successful Stories" />
                   <CardText>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Dolorum illo aspernatur reiciendis saepe, eos voluptatum quibusdam maiores tempora animi ipsam
@@ -116,10 +116,10 @@ class Home extends Component {
             </Col>
           </Row>
           <Row className="footer">
-            <hr className="footer-hr-line"/>
+            <hr className="footer-hr-line" />
             <Col xs={ 12 } sm={ 10 } md={ 4 }>
               <p className="copy">
-                <strong>Manav Jyot Charity</strong>   &copy; <span id="copyright-year">2016</span> <br/>
+                <strong>Manav Jyot Charity</strong>   &copy; <span id="copyright-year">2016</span> <br />
                 Website designed by Hiren, Salim & Chirag
               </p>
             </Col>

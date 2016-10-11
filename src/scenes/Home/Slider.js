@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-import Wallop from 'Wallop';
+import Wallop from 'wallop';
 
 // import './wallop.scss';
 // import './wallop--slide.scss';
