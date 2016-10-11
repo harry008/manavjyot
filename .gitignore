@@ -6,7 +6,6 @@ static/server.js.map
 static/webpack-assets.json
 static/webpack-stats.json
 *.log
-.env
 .nyc_output
 coverage/
 .idea
