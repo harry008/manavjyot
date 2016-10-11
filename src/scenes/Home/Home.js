@@ -6,7 +6,7 @@ import FlatButton from 'material-ui/FlatButton';
 
 import { Heading, Row, Col, Grid, TextBlock } from 'components';
 import Slider from './Slider';
-import './Home.scss';
+// import './Home.scss';
 
 class Home extends Component {
 

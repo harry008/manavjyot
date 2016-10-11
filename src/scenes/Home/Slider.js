@@ -1,9 +1,9 @@
-import React, {Component, PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import Wallop from 'Wallop';
 
-import './wallop.scss';
-import './wallop--slide.scss';
+// import './wallop.scss';
+// import './wallop--slide.scss';
 
 import IMG1 from './imgs/page1_img1.jpg';
 import IMG2 from './imgs/page1_img2.jpg';
@@ -11,15 +11,19 @@ import IMG3 from './imgs/page1_img3.jpg';
 
 
 class Slider extends Component {
+  constructor(props) {
+    super(props);
+    this.timer = null;
+  }
+
   componentDidMount() {
     const wollapEl = this.refs.Wallop;
     const slider = new Wallop(wollapEl);
-
     this.timer = setInterval(_ => slider.next(), 2500);
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timer);
+    clearInterval(this.timer);
   }
 
   render() {

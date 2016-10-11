@@ -18,6 +18,7 @@ import dotenv from 'dotenv';
 import ConnectMongo from 'connect-mongo';
 import passport from 'passport';
 import expressValidator from 'express-validator';
+import errorhandler from 'errorhandler';
 
 // React deps
 import React from 'react';
@@ -255,7 +256,7 @@ app.get('*', (req, res) => {
 /**
  * Error Handler.
  */
-// app.use(errorHandler());
+app.use(errorHandler());
 
 server.listen(config.SSR_PORT, (err) => {
   if (err) {

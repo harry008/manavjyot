@@ -8,9 +8,10 @@ import { Field, reduxForm } from 'redux-form';
 
 import { Heading, Grid, Row, Col } from 'components';
 
-import './Donation.scss';
+// import './Donation.scss';
 
 import validate from './validate-form';
+
 const renderTextField = ({ input, label, longLabel, meta: { touched, error }, ...custom }) => (
   <TextField
     hintText={ label }

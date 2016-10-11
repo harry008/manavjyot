@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import Link from 'react-router/lib/Link';
 
-import AppBar from 'material-ui/AppBar'
-import Drawer from 'material-ui/Drawer'
-import Divider from 'material-ui/Divider'
-import MenuItem from 'material-ui/MenuItem'
-import IconButton from 'material-ui/IconButton'
-import NavigationClose from 'material-ui/svg-icons/navigation/close'
+import AppBar from 'material-ui/AppBar';
+import Drawer from 'material-ui/Drawer';
+import Divider from 'material-ui/Divider';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
 
 import Logo from './logo.png';
 
@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        open: false
+      open: false
     };
   }
 

@@ -39,7 +39,6 @@ class Col extends PureComponent {
 }
 
 Col.propTypes = {
-  componentClass: React.PropTypes.string,
   className: React.PropTypes.string,
   style: React.PropTypes.object,
   children: React.PropTypes.node,

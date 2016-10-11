@@ -11,7 +11,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import Divider from 'material-ui/Divider';
 
 
-import './Contact.scss';
+// import './Contact.scss';
 
 // validation function
 import validate from './validate';
